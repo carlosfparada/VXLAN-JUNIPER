@@ -1,0 +1,10 @@
+- name: Configure VXLAN
+  hosts: juniper
+  vars_files:
+  - vars/main.yml
+  tasks:
+  - name: Configure VXLAN
+    junipernetworks.junos.junos_config:
+      src: templates
+      confirm_commit: yes
+      comment: VXLAN config
