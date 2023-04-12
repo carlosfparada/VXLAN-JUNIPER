@@ -6,7 +6,6 @@
   - name: Configure VXLAN
     junipernetworks.junos.junos_config:
       src: "templates/vxlan-{{inventory_hostname}}.j2"
-      backup: yes
       confirm_commit: yes
       comment: VXLAN config
     register: result
