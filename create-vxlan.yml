@@ -5,6 +5,26 @@
   tasks:
   - name: Configure VXLAN
     junipernetworks.junos.junos_config:
-      src: templates
+      src: "templates/vxlan-{{inventory_hostname}}.j2"
+      backup: yes
       confirm_commit: yes
       comment: VXLAN config
+    register: result
+  - name: Debug VXLAN
+    debug:
+      var: result
+
+  - name: Configure VXLAN
+    junipernetworks.junos.junos_command:
+      commands:
+      - show vlans
+      - show interfaces
+      - show protocols pim
+      - show ethernet-switching vxlan-tunnel-end-point source
+      - show ethernet-switching table
+      - show interface vtep.12345 detail
+      - show ospf neighbor 
+    register: result
+  - name: Debug VXLAN
+    debug:
+      var: result
