@@ -15,7 +15,7 @@
 
   - name: Show VLAN, Interface, PIM
     junipernetworks.junos.junos_config:
-      commands:
+      lines:
       - show vlans
       - show interfaces
       - show protocol pim
