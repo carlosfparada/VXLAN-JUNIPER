@@ -16,7 +16,7 @@
     debug:
       var: result
 
-  - name: Configure VXLAN
+  - name: Show VXLAN
     junipernetworks.junos.junos_command:
       commands:
       - show vlans
