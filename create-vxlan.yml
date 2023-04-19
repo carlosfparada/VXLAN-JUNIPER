@@ -23,7 +23,7 @@
       - show protocols pim
       - show ethernet-switching vxlan-tunnel-end-point source
       - show ethernet-switching table
-      - show interface vtep.12345 detail
+      #- show interface vtep.12345 detail
       - show ospf neighbor
     register: result
   - name: Debug VXLAN
