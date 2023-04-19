@@ -17,7 +17,7 @@ vxlans:
   loopback_interface: lo0
   loopback_address: 10.1.1.2
   core_interface: xe-0/0/1:0
-  core_address:  10.2.2.100/24
+  core_address: 10.2.2.100/24
   access_interface: xe-0/0/2:0
   l2l3_interface: em0
   mgmt_interface: em1
