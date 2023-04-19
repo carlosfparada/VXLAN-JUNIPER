@@ -1,5 +1,5 @@
 - name: Configure VXLAN
-  hosts: junos-2 #,junos-3
+  hosts: junos-2,junos-3
   gather_facts: no
   vars_files:
   - vars/main.yml
