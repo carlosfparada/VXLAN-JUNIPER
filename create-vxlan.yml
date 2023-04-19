@@ -10,6 +10,7 @@
       check_commit: yes
       #confirm_commit: yes
       comment: VXLAN config
+    become: true
     register: result
   - name: Debug VXLAN
     debug:
