@@ -13,6 +13,7 @@
 
   - name: Configure VXLAN commit
     junipernetworks.junos.junos_config:
+      backup: yes
       confirm_commit: yes
       comment: VXLAN config commit
 
