@@ -21,7 +21,7 @@
       commands:
       - show vlans
       - show interfaces
-      - show protocols pim
+      - show protocol pim
       - show ethernet-switching vxlan-tunnel-end-point source
       - show ethernet-switching table
       #- show interface vtep.12345 detail
