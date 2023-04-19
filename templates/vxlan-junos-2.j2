@@ -7,3 +7,6 @@ set protocols ospf area 0.0.0.0 interface lo0.0
 set protocols pim interface xe-0/0/1:0.0
 set protocols ospf area 0.0.0.0 interface xe-0/0/1:0.0
 set protocols pim rp static address 10.2.2.2
+set vlans VLAN1 vlan-id 100 vxlan vni 100 multicast-group 233.252.0.2
+set vlans VLAN1 vxlan encapsulate-inner-vlan
+set vlans VLAN1 vxlan unreachable-vtep-aging-timer 600
