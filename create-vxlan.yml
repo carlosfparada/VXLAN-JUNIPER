@@ -10,24 +10,28 @@
       check_commit: yes
       #confirm_commit: yes
       comment: VXLAN config
-    become: true
+    #become: true
     register: result
-  - name: Debug VXLAN
-    debug:
-      var: result
 
-  - name: Show VXLAN
-    junipernetworks.junos.junos_command:
+  - name: Show VLAN, Interface, PIM
+    junipernetworks.junos.junos_config:
       commands:
       - show vlans
       - show interfaces
       - show protocol pim
+    register: result
+  - name: VLAN, Interface, PIM
+    debug:
+      var: result
+
+  - name: Show Ethernet
+    junipernetworks.junos.junos_command:
+      commands:
       - show ethernet-switching vxlan-tunnel-end-point source
       - show ethernet-switching table
       #- show interface vtep.12345 detail
       - show ospf neighbor
     register: result
-  - name: Debug VXLAN
+  - name: Debug Ethernet
     debug:
       var: result
-
