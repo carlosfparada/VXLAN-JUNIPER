@@ -1,5 +1,5 @@
 
-vxlan_infra:
+vxlans_infra:
   pim_rp: 10.2.2.2
   multicast_address: 233.252.0.2
   switches:
