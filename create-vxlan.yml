@@ -10,8 +10,11 @@
       check_commit: yes
       #confirm_commit: yes
       comment: VXLAN config
-    #become: true
-    register: result
+
+  - name: Configure VXLAN commit
+    junipernetworks.junos.junos_config:
+      confirm_commit: yes
+      comment: VXLAN config commit
 
   - name: Show VLAN, Interface, PIM
     junipernetworks.junos.junos_command:
