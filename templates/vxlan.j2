@@ -13,7 +13,7 @@ set vlans VLAN1 vxlan unreachable-vtep-aging-timer {{vxlans_infra.switches[inven
 {# restart l2-learning #query mode #}
 {# set protocols l2-learning decapsulate-accept-inner-vlan #}
 delete interfaces {{vxlans_infra.switches[inventory_hostname].core_interface}} unit 0 family inet dhcp
-set interfaces {{core_interface}} unit 0 family inet address {{vxlans_infra.switches[inventory_hostname].core_address}}
+set interfaces {{vxlans_infra.switches[inventory_hostname].core_interface}} unit 0 family inet address {{vxlans_infra.switches[inventory_hostname].core_address}}
 delete interfaces {{vxlans_infra.switches[inventory_hostname].access_interface}} unit 0 family inet
 set interfaces {{vxlans_infra.switches[inventory_hostname].access_interface}} unit 0 family ethernet-switching interface-mode trunk
 set interfaces {{vxlans_infra.switches[inventory_hostname].access_interface}} unit 0 family ethernet-switching vlan members all
