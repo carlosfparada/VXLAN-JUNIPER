@@ -21,7 +21,7 @@
       commands:
       - show vlans
       - show interfaces
-      - show protocols pim
+      #- show protocols pim
     register: result
   - name: VLAN, Interface, PIM
     debug:
