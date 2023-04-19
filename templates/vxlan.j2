@@ -1,0 +1,23 @@
+{# https://www.juniper.net/documentation/us/en/software/junos/ovsdb-vxlan-qfx/topics/task/vxlan-qfx-series-cli.html #}
+{# https://www.juniper.net/documentation/us/en/software/junos/ovsdb-vxlan-qfx/topics/topic-map/vxlan-qfx-series.html#id-example-configuring-a-vxlan-transit-switch #}
+set interfaces {{loopback_interface}} unit 0 family inet address {{loopback_address}}
+set switch-options vtep-source-interface {{loopback_interface}}.0
+set protocols pim interface {{loopback_interface}}.0
+set protocols ospf area 0.0.0.0 interface {{loopback_interface}}.0
+set protocols pim interface {{core_interface}}.0
+set protocols ospf area 0.0.0.0 interface {{core_interface}}.0
+set protocols pim rp static address {{pim_rp}}
+set vlans VLAN1 vlan-id {{vlan_id}} vxlan vni {{vni}} multicast-group {{multicast_address}}
+set vlans VLAN1 vxlan encapsulate-inner-vlan
+set vlans VLAN1 vxlan unreachable-vtep-aging-timer {{aging_timer}}
+{# restart l2-learning #query mode #}
+{# set protocols l2-learning decapsulate-accept-inner-vlan #}
+delete interfaces {{core_interface}} unit 0 family inet dhcp
+set interfaces {{core_interface}} unit 0 family inet address {{core_address}}
+delete interfaces {{access_interface}} unit 0 family inet
+set interfaces {{access_interface}} unit 0 family ethernet-switching interface-mode trunk
+set interfaces {{access_interface}} unit 0 family ethernet-switching vlan members all
+{# set protocols ospf enable #}
+set protocols ospf area 0.0.0.0 interface {{l2l3_interface}}.0 disable
+set protocols ospf area 0.0.0.0 interface {{mgmt_interface}}.0 disable
+set protocols ospf area 0.0.0.0 interface all
