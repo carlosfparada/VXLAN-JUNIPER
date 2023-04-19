@@ -7,7 +7,7 @@ set protocols ospf area 0.0.0.0 interface {{vxlans_infra.switches[inventory_host
 set protocols pim interface {{vxlans_infra.switches[inventory_hostname].core_interface}}.0
 set protocols ospf area 0.0.0.0 interface {{vxlans_infra.switches[inventory_hostname].core_interface}}.0
 set protocols pim rp static address {{vxlans_infra.pim_rp}}
-set vlans VLAN1 vlan-id {{vlan_id}} vxlan vni {{vni}} multicast-group {{vxlans_infra.multicast_address}}
+set vlans VLAN1 vlan-id {{vxlans_infra.switches[inventory_hostname].vlan_id}} vxlan vni {{vxlans_infra.switches[inventory_hostname].vni}} multicast-group {{vxlans_infra.multicast_address}}
 set vlans VLAN1 vxlan encapsulate-inner-vlan
 set vlans VLAN1 vxlan unreachable-vtep-aging-timer {{vxlans_infra.switches[inventory_hostname].aging_timer}}
 {# restart l2-learning #query mode #}
