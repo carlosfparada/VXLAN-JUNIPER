@@ -1,7 +1,7 @@
 {# https://www.juniper.net/documentation/us/en/software/junos/ovsdb-vxlan-qfx/topics/task/vxlan-qfx-series-cli.html #}
 {# https://www.juniper.net/documentation/us/en/software/junos/ovsdb-vxlan-qfx/topics/topic-map/vxlan-qfx-series.html#id-example-configuring-a-vxlan-transit-switch #}
 set interfaces lo0 unit 0 family inet address 10.1.1.1
-set switch-options vtep–source-interface lo0.0
+set switch-options vtep-source-interface lo0.0
 set protocols pim interface lo0.0
 set protocols ospf area 0.0.0.0 interface lo0.0
 set protocols pim interface xe-0/0/1:0.0
