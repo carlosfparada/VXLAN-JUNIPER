@@ -8,9 +8,9 @@ set protocols pim interface {{vxlans_infra.switches[inventory_hostname].core_int
 set protocols ospf area 0.0.0.0 interface {{vxlans_infra.switches[inventory_hostname].core_interface}}.0
 set protocols pim rp static address {{vxlans_infra.pim_rp}}
 {% for vxlan in vxlans_infra.vxlans %}
-set vlans {{vxlan.vlan_name}} vlan-id {{vxlan.vlan_id}} vxlan vni {{vxlan.vni}} multicast-group {{vxlan.multicast_address}}
-set vlans {{vxlan.vlan_name}} vxlan encapsulate-inner-vlan
-set vlans {{vxlan.vlan_name}} vxlan unreachable-vtep-aging-timer {{vxlan.aging_timer}}
+set vlans {{vxlan.name}} vlan-id {{vxlan.vlan_id}} vxlan vni {{vxlan.vni}} multicast-group {{vxlan.multicast_address}}
+set vlans {{vxlan.name}} vxlan encapsulate-inner-vlan
+set vlans {{vxlan.name}} vxlan unreachable-vtep-aging-timer {{vxlan.aging_timer}}
 {% endfor %}
 {# set protocols l2-learning decapsulate-accept-inner-vlan #}
 delete interfaces {{vxlans_infra.switches[inventory_hostname].core_interface}} unit 0 family inet dhcp
