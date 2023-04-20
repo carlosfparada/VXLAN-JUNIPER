@@ -8,10 +8,10 @@ vxlans_infra:
       loopback_address: 10.1.1.1
       core_interface: xe-0/0/0
       core_address: 10.2.2.100/24
-      access_interface: xe-0/0/1
+      access_interface: em2
       mgmt_interface: em0
-      l2l3_interface: em1
       aging_timer: 600
+      vlan_name: VLAN1
       vlan_id: 100
       vni: 100
     junos-3:
@@ -19,14 +19,14 @@ vxlans_infra:
       loopback_address: 10.1.1.2
       core_interface: xe-0/0/0
       core_address: 10.2.2.200/24
-      access_interface: xe-0/0/1
+      access_interface: em2
       mgmt_interface: em0
-      l2l3_interface: em1
       aging_timer: 600
+      vlan_name: VLAN1
       vlan_id: 100
       vni: 100
 
 vxlans:
-- name: vni-100
+- name: VLAN1
   vlan_id: 100
   vni: 100
