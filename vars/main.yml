@@ -17,7 +17,7 @@ vxlans_infra:
       access_interface: xe-0/0/1
       mgmt_interface: em0
   vxlans:
-  - name: VLAN1
+  - name: VLAN_1
     vlan_id: 1
     vni: 1001
     multicast_group: 233.252.0.2
