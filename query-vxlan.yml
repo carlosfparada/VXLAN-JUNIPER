@@ -25,3 +25,13 @@
   - name: Debug Ethernet
     debug:
       var: result
+
+  - name: Gather facts
+    junipernetworks.junos.junos_facts:
+      gather_subset: config
+      #gather_subset: all
+      #gather_network_resources: all
+    register: result
+  - name: Debug Ethernet
+    debug:
+      var: result
