@@ -10,26 +10,3 @@
       confirm_commit: yes
       update: merge
       comment: VXLAN config
-
-  - name: Show VLAN, Interface, PIM
-    junipernetworks.junos.junos_command:
-      commands:
-      - show vlans
-      - show interfaces
-      #- show protocols pim
-    register: result
-  - name: VLAN, Interface, PIM
-    debug:
-      var: result
-
-  - name: Show Ethernet
-    junipernetworks.junos.junos_command:
-      commands:
-      - show ethernet-switching vxlan-tunnel-end-point source
-      - show ethernet-switching table
-      #- show interface vtep.12345 detail
-      - show ospf neighbor
-    register: result
-  - name: Debug Ethernet
-    debug:
-      var: result
