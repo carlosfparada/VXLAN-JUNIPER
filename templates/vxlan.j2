@@ -10,14 +10,12 @@ set protocols pim rp static address {{vxlans_infra.pim_rp}}
 set vlans VLAN1 vlan-id {{vxlans_infra.switches[inventory_hostname].vlan_id}} vxlan vni {{vxlans_infra.switches[inventory_hostname].vni}} multicast-group {{vxlans_infra.multicast_address}}
 set vlans VLAN1 vxlan encapsulate-inner-vlan
 set vlans VLAN1 vxlan unreachable-vtep-aging-timer {{vxlans_infra.switches[inventory_hostname].aging_timer}}
-{# restart l2-learning #query mode #}
 {# set protocols l2-learning decapsulate-accept-inner-vlan #}
 delete interfaces {{vxlans_infra.switches[inventory_hostname].core_interface}} unit 0 family inet dhcp
 set interfaces {{vxlans_infra.switches[inventory_hostname].core_interface}} unit 0 family inet address {{vxlans_infra.switches[inventory_hostname].core_address}}
 delete interfaces {{vxlans_infra.switches[inventory_hostname].access_interface}} unit 0 family inet
 set interfaces {{vxlans_infra.switches[inventory_hostname].access_interface}} unit 0 family ethernet-switching interface-mode trunk
 set interfaces {{vxlans_infra.switches[inventory_hostname].access_interface}} unit 0 family ethernet-switching vlan members all
-{# set protocols ospf enable #}
-set protocols ospf area 0.0.0.0 interface {{vxlans_infra.switches[inventory_hostname].l2l3_interface}}.0 disable
+set protocols ospf enable
 set protocols ospf area 0.0.0.0 interface {{vxlans_infra.switches[inventory_hostname].mgmt_interface}}.0 disable
 set protocols ospf area 0.0.0.0 interface all
