@@ -19,6 +19,6 @@ vxlans_infra:
   vxlans:
   - name: VLAN1
     vlan_id: 1
-    vni: 100
+    vni: 1001
     multicast_group: 233.252.0.2
     aging_timer: 600
