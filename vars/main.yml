@@ -8,7 +8,7 @@ vxlans_infra:
       loopback_address: 10.1.1.1
       core_interface: xe-0/0/0
       core_address: 10.2.2.100/24
-      access_interface: em2
+      access_interface: xe-0/0/0
       mgmt_interface: em0
       aging_timer: 600
       vlan_name: VLAN1
@@ -19,7 +19,7 @@ vxlans_infra:
       loopback_address: 10.1.1.2
       core_interface: xe-0/0/0
       core_address: 10.2.2.200/24
-      access_interface: em2
+      access_interface: xe-0/0/0
       mgmt_interface: em0
       aging_timer: 600
       vlan_name: VLAN1
