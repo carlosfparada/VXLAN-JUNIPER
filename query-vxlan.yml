@@ -37,12 +37,12 @@
     debug:
       var: result
 
-  - name: Show config
-    junipernetworks.junos.junos_command:
-      commands:
-      - show configuration | display json
-      #- show configuration | display set | match interface
-    register: result
-  - name: Debug Configurations
-    debug:
-      var: result
+  # - name: Show config
+  #   junipernetworks.junos.junos_command:
+  #     commands:
+  #     - show configuration | display json
+  #     #- show configuration | display set | match interface
+  #   register: result
+  # - name: Debug Configurations
+  #   debug:
+  #     var: result
