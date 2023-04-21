@@ -14,7 +14,7 @@
   - name: VLAN, Interface, PIM
     debug:
       var: result
-      
+
   - name: Show Ethernet
     junipernetworks.junos.junos_command:
       commands:
@@ -29,9 +29,9 @@
 
   - name: Gather facts
     junipernetworks.junos.junos_facts:
-      gather_subset: config
-      #gather_subset: all
-      #gather_network_resources: all
+      #gather_subset: config
+      gather_subset: all
+      gather_network_resources: all
     register: result
   - name: Debug Ethernet
     debug:
