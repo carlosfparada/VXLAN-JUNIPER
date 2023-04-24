@@ -1,24 +1,23 @@
-
 vxlans_infra:
   pim_rp: 10.2.2.2
   switches:
-    junos-2:
+    junos-1:
       loopback_interface: lo0
       loopback_address: 10.1.1.1
-      core_interface: xe-0/0/0
+      core_interface: xe-0/0/1
       core_address: 10.2.2.100/24
-      access_interface: xe-0/0/1
+      access_interface: xe-0/0/2
       mgmt_interface: em0
-    junos-3:
+    junos-2:
       loopback_interface: lo0
       loopback_address: 10.1.1.2
-      core_interface: xe-0/0/0
+      core_interface: xe-0/0/1
       core_address: 10.2.2.200/24
-      access_interface: xe-0/0/1
+      access_interface: xe-0/0/2
       mgmt_interface: em0
   vxlans:
-  - name: VLAN2
-    vlan_id: 2
-    vni: 1002
+  - name: VLAN100
+    vlan_id: 100
+    vni: 100
     multicast_group: 233.252.0.2
     aging_timer: 600
