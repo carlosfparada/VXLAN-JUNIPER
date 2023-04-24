@@ -52,7 +52,7 @@
       commands:
       - show configuration | display set | match interface
     register: result
-  - name: Debug Configurations
+  - name: Debug Configurations (set)
     debug:
       var: result
 
