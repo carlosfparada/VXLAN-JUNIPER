@@ -1,4 +1,4 @@
-- name: Configure VXLAN
+- name: Query VXLAN
   hosts: junos-1
   gather_facts: no
   vars_files:
@@ -9,7 +9,7 @@
       commands:
       - show vlans
       - show interfaces
-      - show protocols pim
+      #- show protocols pim
     register: result
   - name: VLAN, Interface, PIM
     debug:
@@ -45,7 +45,6 @@
   - name: Debug Configurations (set)
     debug:
       var: result
-
 
   - name: Show config (set)
     junipernetworks.junos.junos_command:
