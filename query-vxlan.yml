@@ -9,7 +9,7 @@
       commands:
       - show vlans
       - show interfaces
-      #- show protocols pim
+      - show protocols pim
     register: result
   - name: VLAN, Interface, PIM
     debug:
@@ -33,9 +33,19 @@
       #gather_subset: config
       #gather_network_resources: all
     register: result
-  - name: Debug Ethernet
+  - name: Debug Facts
     debug:
       var: result
+
+  - name: Show config (set)
+    junipernetworks.junos.junos_config:
+      lines:
+      - run show configuration | display set | match interface
+    register: result
+  - name: Debug Configurations (set)
+    debug:
+      var: result
+
 
   - name: Show config (set)
     junipernetworks.junos.junos_command:
@@ -51,6 +61,6 @@
       commands:
       - show configuration | display json
     register: result
-  - name: Debug Configurations
+  - name: Debug Configurations (json)
     debug:
       var: result
