@@ -1,6 +1,8 @@
 - name: Query VXLAN
   hosts: junos-1
   gather_facts: no
+  vars:
+    ansible_command_timeout: 600
   vars_files:
   - vars/main.yml
   tasks:
